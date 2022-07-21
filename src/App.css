@@ -4,5 +4,7 @@
 
 @font-face {
   font-family: "IBMPlexSansKR-Regular";
-  src: url(/src/assets/fonts/IBMPlexSansKR-Regular.ttf);
+  src: url(/src/assets/fonts/IBMPlexSansKR-Medium.ttf);
+  font-weight: normal;
+  font-style: normal;
 }

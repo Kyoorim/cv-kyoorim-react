@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-import Header from "../components/Header";
+import Nav from "../components/Nav";
 
 const Wrapper = styled.div`
   height: 90vh;
@@ -25,7 +25,7 @@ const AboutMe = () => {
   return (
     <>
       <Wrapper>
-        <Header></Header>
+        <Nav></Nav>
         <Contents>
           <Title>ABOUT ME</Title>
         </Contents>

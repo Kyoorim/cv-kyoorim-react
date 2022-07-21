@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 // 페이지 연결해주기
