@@ -17,6 +17,18 @@ const BalloonContainer = styled.div`
   position: absolute;
   bottom: 20%;
   left: 13%;
+  animation: balloons 4s ease-in-out infinite;
+  transform-origin: bottom center;
+
+  @keyframes balloons {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-4deg);
+    }
+    50% {
+      transform: translateY(-25px) rotate(4deg);
+    }
+  }
 `;
 
 const NicoContainer = styled.div`

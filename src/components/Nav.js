@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 // 링크타고 이동할 수 있는 useNavigate
@@ -9,14 +10,14 @@ import { ReactComponent as Bar } from "../icon/bars-solid.svg";
 import Nico from "../assets/nicolas2.png";
 
 const Wrapper = styled.div`
-  height: 10vh;
+  height: 75px;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 10px;
   background-color: white;
-  border-bottom: 1px solid rgba(176, 177, 177, 0.3);
+  border-bottom: var(--border);
   position: relative;
 
   div {
@@ -70,12 +71,48 @@ const Menu = styled.div`
 `;
 
 const MenuBar = styled.div`
+  /* display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 50vh; */
   @media screen and (min-width: 769px) {
     display: none;
   }
 `;
 
+const Detail = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  top: 75px;
+  right: 0;
+
+  li {
+    display: inline-block;
+    border: var(--border);
+    background-color: white;
+    z-index: 5;
+    padding: 20px 20px;
+  }
+
+  &.show-menu {
+    width: 200px;
+    height: 80px;
+  }
+
+  &.hide-menu {
+    opacity: 0;
+  }
+`;
+
 const Nav = () => {
+  const [isOpened, setIsOpened] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsOpened(!isOpened);
+  };
+
   const navigate = useNavigate();
 
   const directToHome = () => {
@@ -115,8 +152,22 @@ const Nav = () => {
           </div>
         </Menu>
         <MenuBar>
-          <Bar width="35" height="35" />
+          <Bar
+            width="35"
+            height="35"
+            style={{ cursor: "pointer" }}
+            onClick={handleMenuClick}
+          />
         </MenuBar>
+        <Detail
+          className={isOpened ? "show-menu" : "hide-menu"}
+          style={{ cursor: "pointer" }}
+        >
+          <li onClick={directToHome}>HOME</li>
+          <li onClick={directToAboutMe}>ABOUT ME</li>
+          <li onClick={directToProject}>PROJECT</li>
+          <li onClick={directToContact}>CONTACT</li>
+        </Detail>
       </Wrapper>
     </>
   );
