@@ -137,7 +137,7 @@ const Nav = () => {
         <NicolasImage>
           <img src={Nico} width={50} height={60} />
         </NicolasImage>
-        <Menu>
+        <Menu style={{ cursor: "pointer" }}>
           <div className="blue" onClick={directToHome}>
             HOME
           </div>

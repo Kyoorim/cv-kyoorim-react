@@ -17,17 +17,23 @@ const BalloonContainer = styled.div`
   position: absolute;
   bottom: 20%;
   left: 13%;
-  animation: balloons 4s ease-in-out infinite;
+  animation: balloons 10s ease-in-out infinite;
   transform-origin: bottom center;
 
   @keyframes balloons {
     0%,
     100% {
-      transform: translateY(0) rotate(-4deg);
+      transform: translateY(0) rotate(-2deg);
+    }
+    75% {
+      transform: translateY(-50px) rotate(-8deg);
     }
     50% {
-      transform: translateY(-25px) rotate(4deg);
+      transform: translateY(-75%) rotate(4deg);
     }
+    /* 25% {
+      transform: translateY(-125px) rotate(2deg);
+    } */
   }
 `;
 

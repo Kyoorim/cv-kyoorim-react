@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 import Nav from "../components/Nav";
+import Profile from "../components/Profile";
 
 const Wrapper = styled.div`
   height: 90vh;
@@ -16,9 +17,14 @@ const Contents = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.div`
-  font-size: 30pt;
-  margin: 40px 0px;
+const Intro = styled.div`
+  font-size: 10pt;
+  margin: 40px 20px;
+`;
+
+const Profiles = styled.div`
+  font-size: 10pt;
+  margin: 40px 20px;
 `;
 
 const AboutMe = () => {
@@ -27,7 +33,17 @@ const AboutMe = () => {
       <Wrapper>
         <Nav></Nav>
         <Contents>
-          <Title>ABOUT ME</Title>
+          <Intro>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.{" "}
+          </Intro>
+          <Profiles>
+            <Profile />
+          </Profiles>
         </Contents>
       </Wrapper>
     </>
