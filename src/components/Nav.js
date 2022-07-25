@@ -102,7 +102,7 @@ const Detail = styled.div`
   }
 
   &.hide-menu {
-    opacity: 0;
+    display: none;
   }
 `;
 

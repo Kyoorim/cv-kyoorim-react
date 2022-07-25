@@ -1,43 +1,63 @@
 import styled from "styled-components";
-import { useState } from "react";
-
-import { ReactComponent as ProfileLogo } from "../icon/profile.svg";
-import { ReactComponent as Work } from "../icon/work.svg";
-import { ReactComponent as Skills } from "../icon/skills.svg";
-import { ReactComponent as Education } from "../icon/education.svg";
-import { ReactComponent as Certificate } from "../icon/certificate.svg";
-import { ReactComponent as Project } from "../icon/project.svg";
-import { ReactComponent as Xmark } from "../icon/circle-xmark.svg";
 import React from "react";
+import { useState } from "react";
+import { dummyProfiles } from "../assets/data/dummyProfiles";
 
-const ProfileContainer = styled.div`
+// import { ReactComponent as ProfileLogo } from "../icon/profile.svg";
+// import { ReactComponent as Work } from "../icon/work.svg";
+// import { ReactComponent as Skills } from "../icon/skills.svg";
+// import { ReactComponent as Education } from "../icon/education.svg";
+// import { ReactComponent as Certificate } from "../icon/certificate.svg";
+// import { ReactComponent as Project } from "../icon/project.svg";
+import { ReactComponent as Xmark } from "../icon/circle-xmark.svg";
+
+const ProfileContainer = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 2em;
   padding: 0px 20px;
-`;
 
-const ProfileList = styled.div`
-  border: var(--border);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 250px;
-  flex-basis: 23.5%;
-  flex-shrink: 1;
-  flex-grow: 1;
-  /* @media screen and (max-width: 1023px) {
+  ul.profileList {
+    border: var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 250px;
+    flex-basis: 23.5%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    padding: 0px 15px;
+    /* @media screen and (max-width: 1023px) {
     flex-basis: 49%;
   } */
-  @media screen and (max-width: 769px) {
-    flex-basis: 100%;
+    @media screen and (max-width: 769px) {
+      flex-basis: 100%;
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+    }
   }
-  .logo {
-    width: 50px;
-    height: 50px;
+
+  li {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    &.logo {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+    &.title {
+      font-size: 20px;
+    }
+    &.content {
+      font-size: 15px;
+      color: gray;
+    }
   }
 `;
 
@@ -81,7 +101,6 @@ const ModalView = styled.div.attrs((props) => ({
   animation: modal-show 0.5s;
 
   div.closeBtn {
-    z-index: 10;
     font-size: 20px;
     position: absolute;
     top: 10px;
@@ -108,64 +127,97 @@ const Profile = () => {
   return (
     <>
       <ProfileContainer>
-        <ProfileList>
-          <Emoji onClick={openModalHandler}>
-            <ProfileLogo className="logo" />
-          </Emoji>
-          <Title>Profile</Title>
-          {modalOpen ? (
-            <ModalBackdrop>
-              <ModalView>
-                <div onClick={openModalHandler} className="closeBtn">
-                  <Xmark width="25" height="25" />
-                </div>
-                <div onClick={openModalHandler}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-                </div>
-              </ModalView>
-            </ModalBackdrop>
-          ) : null}
-          <Body></Body>
-        </ProfileList>
-        <ProfileList>
-          <Emoji>
-            <Work className="logo" />
-          </Emoji>
-          <Title>Work Experience</Title>
-          <Body></Body>
-        </ProfileList>
-        <ProfileList>
-          <Emoji>
-            <Skills className="logo" />
-          </Emoji>
-          <Title>Skills</Title>
-          <Body></Body>
-        </ProfileList>
-        <ProfileList>
-          <Emoji>
-            <Education className="logo" />
-          </Emoji>
-          <Title>Education</Title>
-          <Body></Body>
-        </ProfileList>
-        <ProfileList>
-          <Emoji>
-            <Certificate className="logo" />
-          </Emoji>
-          <Title>Certificate</Title>
-          <Body></Body>
-        </ProfileList>
-        <ProfileList>
-          <Emoji>
-            <Project className="logo" />
-          </Emoji>
-          <Title>Project</Title>
-          <Body></Body>
-        </ProfileList>
+        {dummyProfiles.map((item) => (
+          <React.Fragment key={item.id}>
+            <ul className="profileList">
+              <li className="logo" onClick={openModalHandler}>
+                {item.image}
+              </li>
+              <li className="title">{item.title}</li>
+              <li className="content">{item.content}</li>
+            </ul>
+          </React.Fragment>
+        ))}
+        {modalOpen ? (
+          <ModalBackdrop>
+            <ModalView>
+              <div onClick={openModalHandler} className="closeBtn">
+                <Xmark width="25" height="25" />
+              </div>
+              <div onClick={openModalHandler}>
+                {dummyProfiles.map((item) => (
+                  <React.Fragment key={item.id}>
+                    <ul>
+                      <li>{item.detail}</li>
+                      // 해당 자세히보기가 아니라 전체가 띄워짐 ㅜㅜ
+                    </ul>
+                  </React.Fragment>
+                ))}
+              </div>
+            </ModalView>
+          </ModalBackdrop>
+        ) : null}
       </ProfileContainer>
     </>
   );
 };
 
 export default Profile;
+
+// <ProfileContainer>
+//   <ProfileList>
+//     <Emoji onClick={openModalHandler}>
+//       <ProfileLogo className="logo" />
+//     </Emoji>
+//     <Title>Profile</Title>
+//     {modalOpen ? (
+//       <ModalBackdrop>
+//         <ModalView>
+//           <div onClick={openModalHandler} className="closeBtn">
+//             <Xmark width="25" height="25" />
+//           </div>
+//           <div onClick={openModalHandler}>
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+//             do eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+//           </div>
+//         </ModalView>
+//       </ModalBackdrop>
+//     ) : null
+//     <Body></Body>
+//   </ProfileList>
+//   <ProfileList>
+//     <Emoji>
+//       <Work className="logo" />
+//     </Emoji>
+//     <Title>Work Experience</Title>
+//     <Body></Body>
+//   </ProfileList>
+//   <ProfileList>
+//     <Emoji>
+//       <Skills className="logo" />
+//     </Emoji>
+//     <Title>Skills</Title>
+//     <Body></Body>
+//   </ProfileList>
+//   <ProfileList>
+//     <Emoji>
+//       <Education className="logo" />
+//     </Emoji>
+//     <Title>Education</Title>
+//     <Body></Body>
+//   </ProfileList>
+//   <ProfileList>
+//     <Emoji>
+//       <Certificate className="logo" />
+//     </Emoji>
+//     <Title>Certificate</Title>
+//     <Body></Body>
+//   </ProfileList>
+//   <ProfileList>
+//     <Emoji>
+//       <Project className="logo" />
+//     </Emoji>
+//     <Title>Project</Title>
+//     <Body></Body>
+//   </ProfileList>
+// </ProfileContainer>
