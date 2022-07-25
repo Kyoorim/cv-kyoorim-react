@@ -25,6 +25,7 @@ const Intro = styled.div`
 const Profiles = styled.div`
   font-size: 10pt;
   margin: 40px 20px;
+  width: 100%;
 `;
 
 const AboutMe = () => {
