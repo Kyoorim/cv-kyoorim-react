@@ -17,7 +17,7 @@ const ProfileContainer = styled.ul`
   align-items: center;
   flex-wrap: wrap;
   gap: 2em;
-  padding: 0px 20px;
+  padding: 0px 40px;
 
   ul.profileList {
     border: var(--border);
@@ -149,7 +149,6 @@ const Profile = () => {
                   <React.Fragment key={item.id}>
                     <ul>
                       <li>{item.detail}</li>
-                      // 해당 자세히보기가 아니라 전체가 띄워짐 ㅜㅜ
                     </ul>
                   </React.Fragment>
                 ))}

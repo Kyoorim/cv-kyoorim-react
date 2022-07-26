@@ -5,9 +5,6 @@
 // import { ReactComponent as Certificate } from "../icon/certificate.svg";
 // import { ReactComponent as Project } from "../icon/project.svg";
 
-import { getDefaultNormalizer } from "@testing-library/react";
-import { Tooltip } from "bootstrap";
-
 export const dummyProfiles = [
   {
     id: 1,
@@ -19,7 +16,7 @@ export const dummyProfiles = [
   {
     id: 2,
     title: "Work Experience",
-    content: "회사경력 약 8년/ 현 코드스테이츠 FE 39기 수강 중",
+    content: "회사경력 약 6년/ 현 코드스테이츠 FE 39기 수강 중",
     image: "logo",
     detail: "자세히보기 부분 더 채워넣기 꼬옥",
   },

@@ -57,12 +57,24 @@ const Title = styled.div`
   margin: 40px 0px;
 `;
 
-const ImgContainer = styled.div``;
+const ImgContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const MovingEiffel = styled.div`
-  position: absolute;
-  left: 48%;
-  top: 93px;
+  img {
+    animation: rotate_image 6s linear infinite;
+    transform-origin: 50% 50%;
+
+    @keyframes rotate_image {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
 `;
 
 const LogoImage = styled.div`
