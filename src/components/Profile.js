@@ -17,7 +17,7 @@ const ProfileContainer = styled.ul`
   align-items: center;
   flex-wrap: wrap;
   gap: 2em;
-  padding: 0px 40px;
+  padding: 0px 80px;
 
   ul.profileList {
     border: var(--border);

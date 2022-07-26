@@ -49,12 +49,14 @@ const Contents = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative;
-  top: 10%;
+  top: 5%;
 `;
 
 const Title = styled.div`
   font-size: 30pt;
-  margin: 40px 0px;
+  margin: 20px 0px;
+  background-color: white;
+  z-index: 3;
 `;
 
 const ImgContainer = styled.div`
@@ -62,28 +64,39 @@ const ImgContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 const MovingEiffel = styled.div`
-  img {
-    animation: rotate_image 6s linear infinite;
-    transform-origin: 50% 50%;
+  background-color: white;
+  width: 420px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
-    @keyframes rotate_image {
-      100% {
-        transform: rotate(360deg);
-      }
+  animation: rotate_image 8s ease-in-out infinite;
+  transform-origin: 50% 50%;
+
+  @keyframes rotate_image {
+    100% {
+      transform: rotate(360deg);
     }
   }
 `;
 
 const LogoImage = styled.div`
-  margin: 10px 0px 40px 0px;
+  /* margin: 10px 0px 40px 0px; */
+  position: absolute;
+  bottom: 60px;
 `;
 
 const Desc = styled.div`
   font-size: 20pt;
   margin: 30px 0px;
+  background-color: white;
+  z-index: 3;
 `;
 
 const Home = () => {

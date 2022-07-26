@@ -7,7 +7,7 @@ export const Projectsdata = [
     subtitle: "개인 프로젝트",
     detail:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-    skill: "React,styled-components",
+    skill: ["React", "styled-components"],
     image: "image1",
   },
   {
@@ -18,7 +18,7 @@ export const Projectsdata = [
     subtitle: "개인 프로젝트",
     detail:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-    skill: "React,styled-components",
+    skill: ["React", "styled-components"],
     image: "image1",
   },
   {
@@ -29,7 +29,7 @@ export const Projectsdata = [
     subtitle: "개인 프로젝트",
     detail:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-    skill: "React,styled-components",
+    skill: ["React", "styled-components", "Firebase"],
     image: "image1",
   },
 ];

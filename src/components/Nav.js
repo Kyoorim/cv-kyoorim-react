@@ -19,6 +19,8 @@ const Wrapper = styled.div`
   background-color: white;
   border-bottom: var(--border);
   position: relative;
+  position: sticky;
+  top: 0;
 
   div {
     font-size: 16pt;

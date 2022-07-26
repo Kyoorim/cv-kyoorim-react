@@ -19,7 +19,7 @@ const Contents = styled.div`
 
 const Intro = styled.div`
   font-size: 10pt;
-  margin: 40px 40px;
+  margin: 40px 60px;
 `;
 
 const Profiles = styled.div`

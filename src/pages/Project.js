@@ -20,13 +20,13 @@ const Contents = styled.div`
 
 const Intro = styled.div`
   font-size: 10pt;
-  margin: 40px 40px;
+  margin: 40px 60px;
 `;
 
 const Projects = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 40px 0px;
+  margin: 40px 40px;
 
   div.projectList {
     display: flex;
@@ -41,12 +41,32 @@ const Projects = styled.div`
     margin: 0px 30px;
     padding: 0;
     min-width: 150px;
-  }
 
-  &.leftList {
-  }
+    &.skillList {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin: 0px;
 
-  &.rightList {
+      button {
+        margin-right: 8px;
+        border-radius: 10px;
+        border: 0;
+        text-align: center;
+        box-shadow: 3px 4px 0px 0px #2234ab;
+        background: linear-gradient(to bottom, #1b49a3 5%, #6eb0e6 100%);
+        background-color: #1b49a3;
+        border-radius: 15px;
+        border: 1px solid #d6bcd6;
+        display: inline-block;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 13px;
+        padding: 6px 12px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #e1e2ed;
+      }
+    }
   }
 
   li {
@@ -74,7 +94,7 @@ const Projects = styled.div`
 
 const Project = () => {
   const content = Projectsdata;
-  const keywords = content.skill;
+  console.log(content.skill);
   // const keywords = content.keywords.map((keyword, index) => <span key={index}>{keyword}</span>)
   //<div className={styles.keywords}>{keywords}</div>
   return (
@@ -105,7 +125,10 @@ const Project = () => {
                     <li className="title">{item.title}</li>
                     <li className="subtitle">{item.subtitle}</li>
                     <li className="detail">{item.detail}</li>
-                    <li className="skill">{item.skill}</li>
+                    <ul className="skillList">
+                      <button>{item.skill[0]}</button>
+                      <button>{item.skill[1]}</button>
+                    </ul>
                     <li className="image">{item.image}</li>
                   </ul>
                 </div>
