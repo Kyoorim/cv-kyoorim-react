@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Nav from "../components/Nav";
+import ImageSlider from "../components/ImageSlider";
 import { Projectsdata } from "../assets/data/dummyProjects";
 
 import { ReactComponent as Github } from "../icon/github-brands.svg";
@@ -94,7 +95,6 @@ const Projects = styled.div`
 
 const Project = () => {
   const content = Projectsdata;
-  console.log(content.skill);
   // const keywords = content.keywords.map((keyword, index) => <span key={index}>{keyword}</span>)
   //<div className={styles.keywords}>{keywords}</div>
   return (
@@ -129,7 +129,7 @@ const Project = () => {
                       <button>{item.skill[0]}</button>
                       <button>{item.skill[1]}</button>
                     </ul>
-                    <li className="image">{item.image}</li>
+                    <ImageSlider image={item.image} />
                   </ul>
                 </div>
               </React.Fragment>

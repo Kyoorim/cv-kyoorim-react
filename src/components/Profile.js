@@ -72,7 +72,7 @@ const Title = styled.div`
 const Body = styled.div``;
 
 const ModalBackdrop = styled.div`
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
   position: fixed;
   display: flex;
   justify-content: center;
@@ -87,11 +87,11 @@ const ModalView = styled.div.attrs((props) => ({
   role: "dialog",
 }))`
   color: black;
-  padding: 30px 90px;
+  padding: 30px 30px;
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   text-decoration: none;
   width: 400px;
@@ -105,6 +105,9 @@ const ModalView = styled.div.attrs((props) => ({
     position: absolute;
     top: 10px;
     right: 20px;
+  }
+  ul {
+    padding: 0;
   }
 
   @keyframes modal-show {
@@ -127,35 +130,31 @@ const Profile = () => {
   return (
     <>
       <ProfileContainer>
-        {dummyProfiles.map((item) => (
-          <React.Fragment key={item.id}>
-            <ul className="profileList">
+        {dummyProfiles.map((item) => {
+          return (
+            <ul className="profileList" key={item.id}>
               <li className="logo" onClick={openModalHandler}>
                 {item.image}
               </li>
               <li className="title">{item.title}</li>
               <li className="content">{item.content}</li>
+              {modalOpen ? (
+                <ModalBackdrop onClick={openModalHandler}>
+                  <ModalView>
+                    <div onClick={openModalHandler} className="closeBtn">
+                      <Xmark width="25" height="25" />
+                    </div>
+                    <div onClick={openModalHandler}>
+                      <ul>
+                        <li>{item.detail}</li>
+                      </ul>
+                    </div>
+                  </ModalView>
+                </ModalBackdrop>
+              ) : null}
             </ul>
-          </React.Fragment>
-        ))}
-        {modalOpen ? (
-          <ModalBackdrop>
-            <ModalView>
-              <div onClick={openModalHandler} className="closeBtn">
-                <Xmark width="25" height="25" />
-              </div>
-              <div onClick={openModalHandler}>
-                {dummyProfiles.map((item) => (
-                  <React.Fragment key={item.id}>
-                    <ul>
-                      <li>{item.detail}</li>
-                    </ul>
-                  </React.Fragment>
-                ))}
-              </div>
-            </ModalView>
-          </ModalBackdrop>
-        ) : null}
+          );
+        })}
       </ProfileContainer>
     </>
   );
