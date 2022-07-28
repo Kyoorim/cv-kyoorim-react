@@ -59,6 +59,15 @@ const Menu = styled.div`
     display: none;
   }
 
+  div {
+    transform: scale(1);
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.2); /* 이미지 확대 */
+      transition: transform 0.3s; /*  시간 설정  */
+    }
+  }
+
   .blue {
     color: 0e32ff;
   }

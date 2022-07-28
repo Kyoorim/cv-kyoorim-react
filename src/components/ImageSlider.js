@@ -15,6 +15,7 @@ const ImgContainer = styled.div`
     transform: scale(1);
     transition: transform 0.5s;
     z-index: 1;
+    box-shadow: 0px 1px 14px -1px rgba(0, 0, 0, 0.4);
 
     &:hover {
       transform: scale(1.2); /* 이미지 확대 */

@@ -3,12 +3,6 @@ import React from "react";
 import { useState } from "react";
 import { dummyProfiles } from "../assets/data/dummyProfiles";
 
-// import { ReactComponent as ProfileLogo } from "../icon/profile.svg";
-// import { ReactComponent as Work } from "../icon/work.svg";
-// import { ReactComponent as Skills } from "../icon/skills.svg";
-// import { ReactComponent as Education } from "../icon/education.svg";
-// import { ReactComponent as Certificate } from "../icon/certificate.svg";
-// import { ReactComponent as Project } from "../icon/project.svg";
 import { ReactComponent as Xmark } from "../icon/circle-xmark.svg";
 
 const ProfileContainer = styled.ul`
@@ -19,7 +13,7 @@ const ProfileContainer = styled.ul`
   gap: 2em;
   padding: 0px 80px;
 
-  ul.profileList {
+  div.profileList {
     border: var(--border);
     display: flex;
     flex-direction: column;
@@ -40,6 +34,12 @@ const ProfileContainer = styled.ul`
     .logo {
       width: 50px;
       height: 50px;
+      transform: scale(1);
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.2); /* 이미지 확대 */
+        transition: transform 0.3s; /*  시간 설정  */
+      }
     }
   }
 
@@ -60,16 +60,6 @@ const ProfileContainer = styled.ul`
     }
   }
 `;
-
-const Emoji = styled.div`
-  margin-bottom: 15px;
-`;
-
-const Title = styled.div`
-  font-size: 20px;
-`;
-
-const Body = styled.div``;
 
 const ModalBackdrop = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
@@ -132,9 +122,14 @@ const Profile = () => {
       <ProfileContainer>
         {dummyProfiles.map((item) => {
           return (
-            <ul className="profileList" key={item.id}>
-              <li className="logo" onClick={openModalHandler}>
-                {item.image}
+            <div
+              className="profileList"
+              key={item.id}
+              onClick={openModalHandler}
+              style={{ cursor: "pointer" }}
+            >
+              <li className="logo">
+                <img src={item.image} width={50} height={50} />
               </li>
               <li className="title">{item.title}</li>
               <li className="content">{item.content}</li>
@@ -152,7 +147,7 @@ const Profile = () => {
                   </ModalView>
                 </ModalBackdrop>
               ) : null}
-            </ul>
+            </div>
           );
         })}
       </ProfileContainer>
