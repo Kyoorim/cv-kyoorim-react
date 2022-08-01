@@ -27,6 +27,7 @@ const Main = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 2em;
+  margin: 40px 0px;
   padding: 0px 80px;
 
   ul.contactList {

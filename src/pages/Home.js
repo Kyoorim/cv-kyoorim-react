@@ -19,6 +19,7 @@ const BalloonContainer = styled.div`
   left: 13%;
   animation: balloons 10s ease-in-out infinite;
   transform-origin: bottom center;
+  z-index: 5;
 
   @keyframes balloons {
     0%,
@@ -83,6 +84,10 @@ const MovingEiffel = styled.div`
     100% {
       transform: rotate(360deg);
     }
+  }
+
+  img {
+    z-index: 7;
   }
 `;
 

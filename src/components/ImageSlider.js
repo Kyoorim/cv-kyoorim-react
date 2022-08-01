@@ -8,13 +8,12 @@ const ImgContainer = styled.div`
   margin-top: 20px;
   display: flex;
 
-  img {
+  img.thumbnail {
     margin-right: 15px;
     border: var(--border);
     border-radius: 10px;
     transform: scale(1);
     transition: transform 0.5s;
-    z-index: 1;
     box-shadow: 0px 1px 14px -1px rgba(0, 0, 0, 0.4);
 
     &:hover {
@@ -50,6 +49,7 @@ const ModalView = styled.div.attrs((props) => ({
   width: 800px;
   height: 600px;
   position: relative;
+  z-index: 10;
   border-radius: 15px;
   animation: modal-show 0.5s;
 
@@ -92,30 +92,37 @@ const ImageSlider = ({ image }) => {
       <ImgContainer>
         {image.map((picture) => {
           return (
-            <div>
-              <img
-                src={picture.pic}
-                key={picture.idx}
-                width={100}
-                height={80}
-                style={{ cursor: "pointer" }}
-                onClick={openModalHandler}
-              />
-              {modalOpen ? (
-                <ModalBackdrop onClick={openModalHandler}>
-                  <ModalView>
-                    <div onClick={openModalHandler} className="closeBtn">
-                      <Xmark width="25" height="25" />
-                    </div>
-                    <div>
-                      <img onClick={openModalHandler} src={picture.pic} />
-                    </div>
-                  </ModalView>
-                </ModalBackdrop>
-              ) : null}
-            </div>
+            <img
+              className="thumbnail"
+              src={picture.pic}
+              key={picture.idx}
+              width={100}
+              height={80}
+              style={{ cursor: "pointer" }}
+              onClick={openModalHandler}
+            />
           );
         })}
+        {modalOpen ? (
+          <ModalBackdrop onClick={openModalHandler}>
+            <ModalView>
+              <div onClick={openModalHandler} className="closeBtn">
+                <Xmark width="25" height="25" />
+              </div>
+              <div>
+                {image.map((picture, idx) => {
+                  return (
+                    <img
+                      onClick={openModalHandler}
+                      key={idx}
+                      src={picture.pic}
+                    />
+                  );
+                })}
+              </div>
+            </ModalView>
+          </ModalBackdrop>
+        ) : null}
       </ImgContainer>
     </>
   );
